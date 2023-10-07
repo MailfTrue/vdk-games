@@ -22,17 +22,21 @@ const init = ({view}) => {
 
 // Listen for animate update
 
-    setInterval(createFruit, 1200)
+    setInterval(createFruit, 200)
 
 }
 
 const createFruit = () => {
+    const cars = [FruitTypes.CAR, FruitTypes.POCO]
+    const carIdx = Math.floor(Math.random() * cars.length)
+    const car = cars[carIdx]
+    console.log("Car", car, carIdx)
     const fruit = Fruit({
         x: Math.random()*app.screen.width,
         y: app.screen.height,
         // x: (app.screen.width - 300) * Math.random() + 300,
         // y: app.screen.height ,
-        type: Math.random() > 0.3 ? FruitTypes.CAR : FruitTypes.BOMB,
+        type: Math.random() > 0.3 ? car : FruitTypes.BOMB,
 
 
     })
